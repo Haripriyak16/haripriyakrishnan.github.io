@@ -504,6 +504,8 @@ img{
     font-size: var(--h3-font-size);
 }
 
+
+
 /* ===================== ABOUT ================== */
 .about{
     padding-top: 1rem;
@@ -556,7 +558,9 @@ img{
 
 .skills__container-card {
   position: relative;
-  display: grid;
+  display: flex; /* Use flexbox for easier centering */
+  flex-wrap: wrap; /* Allow wrapping of cards */
+  justify-content: center; /* Center the cards */
   width: auto;
   height: auto;
   padding-bottom: var(--mb-0-75);
@@ -564,23 +568,23 @@ img{
   margin-bottom: var(--mb-2);
 }
 
-.skills__container-card:hover {
-  transform: scale(1.1);
-  transition: 0.3s;
-}
-
 .card_skill {
   position: relative;
-  width: 130px; /* Reduced width to create a more compact design */
-  height: 180px; /* Reduced height slightly */
+  width: 130px; /* Adjust this value as needed */
+  height: 180px; /* Adjust this value as needed */
   border-radius: 15px;
   overflow: hidden;
-  margin: auto;
-  padding: 1.5em; /* Reduced padding for more content space */
+  margin: 10px; /* Add margin for spacing between cards */
+  padding: 1.5em; /* Keep padding for content space */
   text-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(20px);
   transform: perspective(500px);
   transform-style: preserve-3d;
+  transition: transform 0.3s; /* Transition for hover effect */
+}
+
+.card_skill:hover {
+  transform: scale(1.1);
 }
 
 .card_skill::before {
@@ -597,7 +601,6 @@ img{
 
 .card_skill:hover::before {
   clip-path: circle(280px at 80% -20%);
-  transition: scale(1.08);
 }
 
 .card_skill::after {
@@ -630,9 +633,9 @@ img{
   align-content: space-between;
   text-align: center;
   position: relative;
-  width: 0%;
-  height: 0%;
-  transform: scale(0.0);
+  width: 0;
+  height: 0;
+  transform: scale(0);
   transition: 1s;
 }
 
@@ -663,6 +666,23 @@ img{
       0 22.3px 17.9px rgba(0, 0, 0, 0.072),
       0 41.8px 33.4px rgba(0, 0, 0, 0.086),
       0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+/* Mobile-specific adjustments */
+@media screen and (max-width: 768px) {
+  .card_skill {
+    width: 90px; /* Adjust width for mobile */
+    height: 150px; /* Adjust height for mobile */
+    margin: 5px; /* Less margin for mobile */
+  }
+
+  .card_skill .contentBx h2 {
+    font-size: 0.7em; /* Smaller font size for mobile */
+  }
+
+  .skills__container-card {
+    padding: 0; /* Remove padding if needed */
+  }
 }
 
 
@@ -1382,6 +1402,23 @@ img{
 .footer__link,
 .footer__social{
   color: #FFF;
+}
+
+
+.footer__socials {
+    display: flex;
+    align-items: center;
+}
+
+.footer__social {
+    font-size: 1.5rem;
+    color: var(--title-color); /* Customize to your preferred color */
+}
+
+@media screen and (max-width: 768px) {
+    .linkedin-icon {
+        margin-left: 20px; /* Adjust this value to set the desired space on mobile */
+    }
 }
 
 
